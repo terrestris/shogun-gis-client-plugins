@@ -1,0 +1,7 @@
+FROM node:16.13.0-alpine
+
+WORKDIR /app
+
+EXPOSE 4000
+
+ENTRYPOINT ["npm", "run", "start"]
