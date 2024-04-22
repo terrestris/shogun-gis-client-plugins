@@ -12,8 +12,11 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    server: 'https',
-    port: 4000,
+    server: 'http',
+    port: 8080,
+    client: {
+      webSocketURL: 'http://0.0.0.0:0/client-plugins/ws'
+    },
     static: path.join(__dirname, 'resources', 'public')
   }
 });

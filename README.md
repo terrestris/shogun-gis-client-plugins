@@ -34,7 +34,7 @@ Additionally you need to expose your new plugin (assumption: webpack dev server 
 
 ```
 location /toBeDefined/my-new-client/ {
-    proxy_pass https://my-new-plugin-service:4123/;
+    proxy_pass https://my-new-plugin-service:8080/;
 
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
@@ -59,8 +59,6 @@ shogun-client-plugins:
     build:
       context: ${SHOGUN_CLIENT_PLUGINS_DIR}
       dockerfile: Dockerfile.dev
-    ports:
-      - 4000:4000
     volumes:
       - ${SHOGUN_CLIENT_PLUGINS_DIR}:/app
 ```
