@@ -33,8 +33,8 @@ plugins: [{
 Additionally you need to expose your new plugin (assumption: webpack dev server of plugin uses port 4123) in your nginx config (e.g. `./shogun-nginx/dev/default.conf`) as follows:
 
 ```
-location /toBeDefined/my-new-client/ {
-    proxy_pass https://my-new-plugin-service:8080/;
+location /toBeDefined/client-plugins/ {
+    proxy_pass http://my-new-plugin-service:8080/;
 
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
