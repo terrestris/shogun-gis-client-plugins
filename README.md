@@ -77,3 +77,11 @@ SHOGUN_CLIENT_PLUGINS_DIR=../shogun-gis-client-plugins
 ```
 
 Further information for the plugin development can also be found in the [SHOGun-gis-client Repository](https://github.com/terrestris/shogun-gis-client/tree/main/src/plugin)
+
+## Notes for development
+
+Since vite's module federation [does not support dev mode on the remote site](https://github.com/originjs/vite-plugin-federation?tab=readme-ov-file#vite-dev-mode), it's recommended to make use of `vite build --watch` instead:
+
+- Run the watch mode with `npm run build:watch`
+- Navigate to the `dist` directory (`cd dist/`)
+- Serve the directy contents, e.g. with `npx serve -p 9090 --cors`
