@@ -1,9 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import path from 'path';
 import federation from "@originjs/vite-plugin-federation";
-import config from './package.json';
-const deps = config.dependencies;
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,7 +10,7 @@ export default defineConfig({
       name: 'ExamplePlugin',
       filename: 'index.js',
       exposes: {
-        './FooterLinks': './src/FooterLinks/index.tsx'
+        './FooterLinks': './src/FooterLinks/plugin'
       },
       shared: {
         react: {
@@ -36,16 +33,16 @@ export default defineConfig({
         }
       }
     }
-  )
-  ],
+  )],
   server: {
     host: '0.0.0.0',
-    port: 8080,
+    port: 9090,
   },
   build: {
     modulePreload: false,
+    // The remote style takes effect only when the build.target option in the vite.config.ts file is higher than that of "es2020".
     target: 'esnext',
     minify: false,
-    cssCodeSplit: false,
+    cssCodeSplit: false
   }
 });
