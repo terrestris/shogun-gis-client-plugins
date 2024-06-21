@@ -1,4 +1,6 @@
 import React from 'react';
+// import Feature from 'ol/Feature';
+import { Feature } from 'ol';
 
 import {
   Button
@@ -8,7 +10,13 @@ import {
   useTranslation
 } from 'react-i18next';
 
-export const FooterLinks: React.FC = () => {
+interface Props {
+  feature: Feature
+}
+
+export const FooterLinks: React.FC<Props> = ({
+  feature
+}) => {
 
   const {
     t
@@ -23,9 +31,7 @@ export const FooterLinks: React.FC = () => {
       type='link'
       onClick={openLink}
     >
-      {
-        t('FooterLinks.exampleLink')
-      }
+      {`Feature ${feature instanceof Feature ? 'is a feature' : 'is NOT a feature'}`}
     </Button>
   );
 };

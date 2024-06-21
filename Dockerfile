@@ -1,11 +1,11 @@
-FROM node:18.18.2-alpine3.17 AS build
+FROM node:22-alpine AS build
 
 WORKDIR /app
 
 COPY package.json ./
 COPY package-lock.json ./
 
-RUN npm ci
+RUN npm i --force
 
 COPY . ./
 
