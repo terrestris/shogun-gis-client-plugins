@@ -98,7 +98,7 @@ Example job:
       SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
       SONAR_HOST_URL: ${{ secrets.SONARQUBE_HOST }}
 ```
-Change the project-key in the sonar-project.properties
+Change the project-key and host.url in the sonar-project.properties
 
 
 Further information for the plugin development can also be found in the [SHOGun GIS client repository](https://github.com/terrestris/shogun-gis-client/tree/main/src/plugin).
