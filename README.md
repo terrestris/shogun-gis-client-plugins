@@ -81,4 +81,24 @@ need to add the variable to your `.env` as follows:
 SHOGUN_CLIENT_PLUGINS_DIR=../shogun-gis-client-plugins
 ```
 
+4. To integrate SonarQube, add a token to your repository and configure the scanner to run in your CI pipeline.
+   
+Example job:
+
+```yaml
+- name: Get version 🔖
+    run: |
+      echo "sonar.projectVersion=$(git describe --tags --abbrev=0 | sed 's/^v//')" >> ./sonar-project.properties
+         
+- name: SonarQube Scan 🔬
+    uses: SonarSource/sonarqube-scan-action@v2.3.0
+    with:
+      projectBaseDir: .
+    env:
+      SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+      SONAR_HOST_URL: ${{ secrets.SONARQUBE_HOST }}
+```
+Change the project-key in the sonar-project.properties
+
+
 Further information for the plugin development can also be found in the [SHOGun GIS client repository](https://github.com/terrestris/shogun-gis-client/tree/main/src/plugin).

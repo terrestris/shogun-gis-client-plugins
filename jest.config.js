@@ -20,5 +20,10 @@ module.exports = {
       '<rootDir>/jest/fileMock.js',
     '^.+\\.(css|less)$': '<rootDir>/jest/cssTransform.js'
   },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'json']
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
+  reporters: [
+    'default',
+    '@casualbot/jest-sonar-reporter'
+  ],
+  coverageReporters: ['json-summary', 'lcov', 'text'],
 };
